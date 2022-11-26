@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Seven Minute Workout</string>
+    <string name="image">start image</string>
+    <string name="are_you_sure">Are you sure?</string>
+    <string name="this_will_stop_your_workout">This will stop your workout.. You\'ve come this far, are you sure you want to quit?</string>
+    <string name="yes">YES</string>
+    <string name="no">NO</string>
+    <string name="exercise_diagram">exercise diagram</string>
+    <string name="end">END</string>
+    <string name="congratulations">Congratulations!</string>
+    <string name="you_have_completed_the_workout">You have completed the workout</string>
+    <string name="finish">FINISH</string>
+    <string name="start">START</string>
+</resources>
