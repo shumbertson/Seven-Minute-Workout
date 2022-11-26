@@ -36,7 +36,6 @@ class ExerciseStatusAdapter(val items: ArrayList<Exercise>):
                         holder.tvItem.context,
                         R.drawable.item_circular_thin_color_accent_border
                     )
-
                 holder.tvItem.setTextColor(Color.BLACK)
             }
             model.getIsCompleted() -> {
@@ -45,7 +44,7 @@ class ExerciseStatusAdapter(val items: ArrayList<Exercise>):
                         holder.tvItem.context,
                         R.drawable.item_circular_color_gray_background
                     )
-
+                holder.tvItem.setTextColor(Color.WHITE)
             }
             else -> {
                 holder.tvItem.background =
