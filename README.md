@@ -1,4 +1,4 @@
-# Seven-Minute-Workout
+# Seven Minute Workout
 Kotlin test drive
 
 You will need to provide your own assets to run the solution or update the constants.kt.  The following assets will need to be provided:

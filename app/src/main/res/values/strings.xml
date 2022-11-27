@@ -11,4 +11,9 @@
     <string name="you_have_completed_the_workout">You have completed the workout</string>
     <string name="finish">FINISH</string>
     <string name="start">START</string>
+    <string name="weight_lbs">Weight (lbs)</string>
+    <string name="height_feet">Height (feet)</string>
+    <string name="height_inches">Height (inches)</string>
+    <string name="weight_kgs">Weight (kgs)</string>
+    <string name="height_cm">Height (cm)</string>
 </resources>

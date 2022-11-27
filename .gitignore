@@ -33,3 +33,6 @@ hs_err_pid*
 /app/src/main/res/drawable/ic_10_lunge_lower_body.png
 /app/src/main/res/drawable/ic_11_pushup_and_rotation.png
 /app/src/main/res/drawable/ic_12_side_plank_core.png
+
+/.gradle/
+.DS_Store

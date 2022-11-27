@@ -9,9 +9,12 @@
         <entry key="app/src/main/res/drawable/ic_action_done.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/item_circular_color_accent_background.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/radio_group_tab_bg.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/rectangular_accent_border.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/rectangular_light_grey_border.xml" value="0.1" />
-        <entry key="app/src/main/res/layout/activity_bmi.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/units_tab_selector.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/units_tab_text_color_selector.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_bmi.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_exercise.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_finish.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.165" />

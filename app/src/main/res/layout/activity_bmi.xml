@@ -17,7 +17,46 @@
         android:id="@+id/tb_bmi"
         >
     </androidx.appcompat.widget.Toolbar>
-
+    <RadioGroup
+        android:id="@+id/rg_units"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tb_bmi"
+        android:background="@drawable/radio_group_tab_bg"
+        android:orientation="horizontal"
+        android:layout_margin="20dp"
+        >
+        <RadioButton
+            android:id="@+id/rb_imperialUnits"
+            android:layout_width="0dp"
+            android:layout_height="35dp"
+            android:layout_weight="0.50"
+            android:background="@drawable/units_tab_selector"
+            android:button="@null"
+            android:checked="true"
+            android:layout_gravity="center"
+            android:text="Imperial"
+            android:textAlignment="center"
+            android:textColor="@drawable/units_tab_text_color_selector"
+            android:textSize="16sp"
+            android:textStyle="bold"/>
+        <RadioButton
+            android:id="@+id/rb_metricUnits"
+            android:layout_width="0dp"
+            android:layout_height="35dp"
+            android:layout_weight="0.50"
+            android:background="@drawable/units_tab_selector"
+            android:button="@null"
+            android:checked="false"
+            android:layout_gravity="center"
+            android:text="Metric"
+            android:textAlignment="center"
+            android:textColor="@drawable/units_tab_text_color_selector"
+            android:textSize="16sp"
+            android:textStyle="bold"/>
+    </RadioGroup>
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/til_weight"
         android:layout_width="match_parent"
@@ -25,41 +64,69 @@
         android:layout_margin="20dp"
         app:boxStrokeColor="@color/accent"
         app:hintTextColor="@color/accent"
+        android:hint="@string/weight_lbs"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-
-        android:hint="Weight"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tb_bmi">
+        app:layout_constraintTop_toBottomOf="@id/rg_units">
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/et_weight"
-            android:hint="Weight (lbs)"
+            android:hint="@string/weight_lbs"
             android:inputType="numberDecimal"
             android:textSize="16sp" />
     </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/til_height"
+    <LinearLayout
+        android:id="@+id/ll_height"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:orientation="horizontal"
         android:layout_margin="20dp"
-        app:boxStrokeColor="@color/accent"
-        app:hintTextColor="@color/accent"
-        android:hint="Height (inches)"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/til_weight">
-        <EditText
-            android:layout_width="match_parent"
+        app:layout_constraintTop_toBottomOf="@id/til_weight"
+        >
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/til_height"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/et_height"
-            android:hint="Height (inches)"
-            android:inputType="numberDecimal"
-            android:textSize="16sp" />
-    </com.google.android.material.textfield.TextInputLayout>
+            app:boxStrokeColor="@color/accent"
+            app:hintTextColor="@color/accent"
+            android:hint="@string/height_feet"
+            android:layout_weight="0.6"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            >
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/et_height"
+                android:hint="@string/height_feet"
+                android:inputType="numberDecimal"
+                android:textSize="16sp" />
+        </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/til_height_inches"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:boxStrokeColor="@color/accent"
+            app:hintTextColor="@color/accent"
+            android:hint="@string/height_inches"
+            android:layout_weight="0.4"
+            android:layout_marginLeft="2dp"
+            android:visibility="visible"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            >
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/et_height_inches"
+                android:hint="@string/height_inches"
+                android:inputType="numberDecimal"
+                android:textSize="16sp" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+    </LinearLayout>
 
 
     <TextView
@@ -70,7 +137,7 @@
         android:layout_margin="20dp"
         android:layout_marginTop="40dp"
         android:visibility="invisible"
-        app:layout_constraintTop_toBottomOf="@id/til_height"
+        app:layout_constraintTop_toBottomOf="@id/ll_height"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:text="YOUR BMI"

@@ -24,12 +24,26 @@ class BmiActivity : AppCompatActivity() {
             onBackPressed()
         }
 
-        binding?.btnCalculate?.setOnClickListener {
-            if (inputsAreValid()) {
-                var height: Float = binding?.etHeight?.text.toString().toFloat()
-                var weight: Float = binding?.etWeight?.text.toString().toFloat()
+        binding?.rbImperialUnits?.setOnClickListener {
+            binding?.etWeight?.hint = getString(R.string.weight_lbs)
+            binding?.tilWeight?.hint = getString(R.string.weight_lbs)
+            binding?.etHeight?.hint = getString(R.string.height_feet)
+            binding?.tilHeight?.hint = getString(R.string.height_feet)
+            binding?.tilHeightInches?.visibility = View.VISIBLE
+        }
 
-                val bmi = weight / (height * height) * 703
+        binding?.rbMetricUnits?.setOnClickListener {
+            binding?.etWeight?.hint = getString(R.string.weight_kgs)
+            binding?.tilWeight?.hint = getString(R.string.weight_kgs)
+            binding?.etHeight?.hint = getString(R.string.height_cm)
+            binding?.tilHeight?.hint = getString(R.string.height_cm)
+            binding?.tilHeightInches?.visibility = View.GONE
+        }
+
+        binding?.btnCalculate?.setOnClickListener {
+            var isImperial = binding?.rbImperialUnits?.isChecked
+            if (inputsAreValid(isImperial)) {
+                val bmi = calculateBmi(isImperial)
                 displayResult(bmi)
             } else {
                 Toast
@@ -38,6 +52,17 @@ class BmiActivity : AppCompatActivity() {
                         Toast.LENGTH_LONG).show()
             }
         }
+    }
+
+    private fun calculateBmi(isImperial: Boolean?): Float {
+        var height: Float = binding?.etHeight?.text.toString().toFloat()
+        var weight: Float = binding?.etWeight?.text.toString().toFloat()
+        if (isImperial == true) {
+            var inches = binding?.etHeightInches?.text.toString().toFloat()
+            var totalHeightInInches = (height * 12) + inches
+            return weight / (totalHeightInInches * totalHeightInInches) * 703
+        }
+        return (weight / (height * height * 0.0001)).toFloat()
     }
 
     private fun displayResult(bmiResult: Float) {
@@ -65,7 +90,12 @@ class BmiActivity : AppCompatActivity() {
         return result
     }
 
-    private fun inputsAreValid() : Boolean {
+    private fun inputsAreValid(isImperial: Boolean?) : Boolean {
+        if (isImperial == true) {
+            return binding?.etWeight?.text?.toString()?.isNullOrBlank() == false
+                    && binding?.etHeight?.text.toString()?.isNullOrBlank() == false
+                    && binding?.etHeightInches?.text.toString()?.isNullOrBlank() == false
+        }
         return binding?.etWeight?.text?.toString()?.isNullOrBlank() == false
                 && binding?.etHeight?.text.toString()?.isNullOrBlank() == false
     }
